@@ -1,0 +1,105 @@
+﻿@model GAG_101.Models.ViewModels.ExpertCreateViewModel
+
+@{
+    ViewBag.Title = "Adding An Expert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2></h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs" class="dark">
+                    <ul>
+                        @Html.ActionLink("Dashboard", "Dashboard_LocalBusiness", "Dashboard_LocalBusiness")
+                        <li></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h3 style="font-size: 26px;">Let's Begin...</h3>
+                </div>
+
+                <!-- Account Type -->
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <!-- Form -->
+
+                    <div class="input-with-icon-left">
+                        Please Enter The Name of this Business:
+                        @Html.TextBoxFor(m => m.Business_Name, new { @class = "form-control" })
+                    </div>
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="input-with-icon-left">
+                        Please Enter The Email Address of this Expert:
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter The  Phone Number of this Expert:
+                        @Html.TextBoxFor(m => m.Phone_Number, new { @class = "form-control" })
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter the Zip Code of this Expert:
+                        @Html.TextBoxFor(m => m.Location_Zip, new { @class = "form-control" })
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Select The Expertise of this Expert:
+                        @Html.TextBoxFor(m => m.Name_JobType, new { @class = "form-control" })
+                    </div>
+
+
+                    <div class="input-with-icon-left">
+                        How would you categorize this Expertise?:
+                        @Html.ListBoxFor(model => model.JobTypes1, (MultiSelectList)ViewBag.TotalJobTypes, new { @class = "form-control" })
+                    </div>
+                    <br />
+
+                    <div class="form">
+                        <div class="input-with-icon-left">
+                            <input type="submit" value="To The Expert Matchmaker" class="button full-width button-sliding-icon ripple-effect margin-top-10" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GotAGuy_DB1ModelStoreContainer" CdmEntityContainer="GotAGuy_DB1Entities">
+    <EntitySetMapping Name="JobTypes1">
+      <EntityTypeMapping TypeName="GotAGuy_DB1Model.JobTypes1">
+        <MappingFragment StoreEntitySet="JobTypes1">
+          <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+          <ScalarProperty Name="Name_JobType" ColumnName="Name_JobType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReviews1">
+      <EntityTypeMapping TypeName="GotAGuy_DB1Model.UserReviews1">
+        <MappingFragment StoreEntitySet="UserReviews1">
+          <ScalarProperty Name="Review_ReferenceID" ColumnName="Review_ReferenceID" />
+          <ScalarProperty Name="LocalBusiness_ID" ColumnName="LocalBusiness_ID" />
+          <ScalarProperty Name="LocalExpert_UserID" ColumnName="LocalExpert_UserID" />
+          <ScalarProperty Name="FairPrice_Rating" ColumnName="FairPrice_Rating" />
+          <ScalarProperty Name="Quality_Rating" ColumnName="Quality_Rating" />
+          <ScalarProperty Name="CompletionTime_Rating" ColumnName="CompletionTime_Rating" />
+          <ScalarProperty Name="Review_Body" ColumnName="Review_Body" />
+          <ScalarProperty Name="ReviewBody_Date" ColumnName="ReviewBody_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocalBusinessUsers1">
+      <EntityTypeMapping TypeName="GotAGuy_DB1Model.LocalBusinessUsers1">
+        <MappingFragment StoreEntitySet="LocalBusinessUsers1">
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Location_Zip" ColumnName="Location_Zip" />
+          <ScalarProperty Name="BU_FEIN" ColumnName="BU_FEIN" />
+          <ScalarProperty Name="Business_Name" ColumnName="Business_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocalBusiness_UserID" ColumnName="LocalBusiness_UserID" />
+          <ScalarProperty Name="LocalBusiness_ID" ColumnName="LocalBusiness_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocalExperts1">
+      <EntityTypeMapping TypeName="GotAGuy_DB1Model.LocalExperts1">
+        <MappingFragment StoreEntitySet="LocalExperts1">
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Location_Zip" ColumnName="Location_Zip" />
+          <ScalarProperty Name="BU_FEIN" ColumnName="BU_FEIN" />
+          <ScalarProperty Name="Name_JobType" ColumnName="Name_JobType" />
+          <ScalarProperty Name="Business_Name" ColumnName="Business_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocalExpert_UserID" ColumnName="LocalExpert_UserID" />
+          <ScalarProperty Name="LocalExpert_ID" ColumnName="LocalExpert_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LocalExpertJobTypes1" TypeName="GotAGuy_DB1Model.LocalExpertJobTypes1" StoreEntitySet="LocalExpertJobTypes1">
+      <EndProperty Name="LocalExperts1">
+        <ScalarProperty Name="LocalExpert_ID" ColumnName="LocalExpert_ID" />
+      </EndProperty>
+      <EndProperty Name="JobTypes1">
+        <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

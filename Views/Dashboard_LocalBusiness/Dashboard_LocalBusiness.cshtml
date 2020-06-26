@@ -1,0 +1,98 @@
+﻿@model GAG_101.Models.RegisterBusinessUserViewModel
+
+@{
+    ViewBag.Title = "Business Owner Dashboard";
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Dashboard Container -->
+<div class="dashboard-container" )>
+
+    <!-- Dashboard Sidebar
+    ================================================== -->
+    <div class="dashboard-sidebar">
+        <div class="dashboard-sidebar-inner" data-simplebar>
+            <div class="dashboard-nav-container">
+
+                <!-- Responsive Navigation Trigger -->
+                <a href="#" class="dashboard-responsive-nav-trigger">
+                    <span class="hamburger hamburger--collapse">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </span>
+                    <span class="trigger-title">Dashboard Navigation</span>
+                </a>
+
+                <!-- Navigation -->
+                <div class="dashboard-nav">
+                    <div class="dashboard-nav-inner">
+                        <br/>
+                        <br/>
+                        <ul data-submenu-title="">
+                            <li class="active">
+                                @Html.ActionLink("Your Dashboard", "Dashboard_LocalBusiness", "Dashboard_LocalBusiness")
+                            </li>
+                            <li>
+                            </li>
+                            <li>
+                                @Html.ActionLink("The Expert Finder", "Index", "LocalExperts1")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Review An Expert", "Create", "LocalExperts1")
+                                </li>
+                            <li>
+                                <a href="">Post A New Job</a>
+                            </li>
+                            <li>
+                                <a href="">Your Auction</a>
+                            </li>
+                        </ul>
+
+                        <ul data-submenu-title="Account">
+                            <li>
+                                <a href=""><i class="icon-material-outline-settings"></i> Settings</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="icon-material-outline-power-settings-new"></i> Logout</a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Sidebar / End -->
+    <!-- Dashboard Content
+    ================================================== -->
+    <div class="dashboard-content-container" data-simplebar>
+        <div class="dashboard-content-inner">
+            <!-- Dashboard Headline -->
+            <div class="dashboard-headline">
+                <h3>Howdy, Nick!</h3>
+                <span>So glad to see you again!</span>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs" class="dark">
+                    <ul>
+                        Welcome Back
+                        <span>@Html.DisplayFor(model => model.Name)</span>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Dashboard Box -->
+            <div class="col-xl-6">
+                <div class="dashboard-box">
+                    
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

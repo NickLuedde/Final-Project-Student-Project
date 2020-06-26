@@ -1,0 +1,125 @@
+﻿@model GAG_101.Models.RegisterBusinessUserViewModel
+
+@{
+    ViewBag.Title = "Business Owner Registration";
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2></h2>
+
+                <!-- Breadcrumbs -->
+                <nav id="breadcrumbs" class="dark">
+                    <ul>
+                         @Html.ActionLink("Home", "Index", "Home")
+                        <li></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h3 style="font-size: 26px;">Let's create your account!</h3>
+                </div>
+
+                <!-- Account Type -->
+                <div class="account-type">
+                    <div>
+                        <input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio" checked />
+                        <label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Local Business Owner</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="account-type-radio" id="employer-radio" class="account-type-radio" />
+                        <label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Local Expert</label>
+                    </div>
+                </div>
+                @using (Html.BeginForm("RegisterBusinessUser", "Account", FormMethod.Post, new {@class = "input-with-icon-left", role = "form"}))
+
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <!-- Form -->
+                    <div class="input-with-icon-left">
+                        Please Enter Your Name:
+                        @Html.TextBoxFor(m => m.Name, new {@class = "input-with-icon-left"})
+                    </div>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="input-with-icon-left">
+                        Please Enter Your Email Address:
+                        @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter The Name of Your Business:
+                        @Html.TextBoxFor(m => m.BusinessName, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter Your Federal Tax Id (FEIN):
+                        @Html.TextBoxFor(m => m.FEIN, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter Your Phone Number:
+                        @Html.TextBoxFor(m => m.Phone, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter Your Zip Code:
+                        @Html.TextBoxFor(m => m.Zip, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Enter Your Password:
+                        @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                    </div>
+
+                    <div class="input-with-icon-left">
+                        Please Confirm Your Password:
+                        @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <div>
+                            <input type="submit" class="button full-width button-sliding-icon ripple-effect margin-top-10" value="Join" />
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+

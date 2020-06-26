@@ -1,0 +1,82 @@
+﻿@model GAG_101.Models.LocalBusinessUsers1
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>LocalBusinessUsers1</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LocalBusiness_UserID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LocalBusiness_UserID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Business_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Business_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BU_FEIN)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BU_FEIN)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location_Zip)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location_Zip)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Phone_Number)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.LocalBusiness_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

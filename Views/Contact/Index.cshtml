@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+    <div class="clearfix"></div>
+    <!-- Header Container / End -->
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2>Let's Chat</h2>
+
+                    <!-- Breadcrumbs -->
+                    <nav id="breadcrumbs" class="dark">
+                        <ul>
+                            <li> @Html.ActionLink("Home", "Index", "Home")</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="contact-location-info margin-bottom-50">
+                    <div class="contact-address">
+                        <ul>
+                            <li class="contact-address-headline">Our Office</li>
+                            <li>Nicholas Luedde </li>
+                            <li>St. Louis, Mo 63122</li>
+                            <li>Phone (773) 910-2282</li>
+                            <li style="color: lightslategray"><a href="https://www.gmail.com" style="color:#c73855;">www.lueddenicholas@gmail.com</a></li>
+                            <li>
+                                <div class="freelancer-socials">
+                                    <ul>
+                                        <li><a href="https://github.com/NickLuedde" title="github" data-tippy-placement="top"><i class="icon-brand-github" style="color: #869dab;"></i></a></li>
+                                        <li><a href="https://www.facebook.com/nick.luedde" title="" data-tippy-placement="top"><i class="icon-brand-facebook" style="color: #869dab;" ></i></a></li>
+                                        <li><a href="https://gmail.com" title="google" data-tippy-placement="top"><i class="icon-brand-google" style="color:#869dab;"   ></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/nicholas-luedde/" title="GitHub" data-tippy-placement="top"><i class="icon-brand-linkedin" style="color: #869dab;"  ></i></a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-xl-8 col-lg-8 offset-xl-2 offset-lg-2">
+
+                <section id="contact" class="margin-bottom-60">
+                    <h3 class="headline margin-top-15 margin-bottom-35">Any questions? Feel free to contact us!</h3>
+
+                    <form method="post" name="contactform" id="contactform" autocomplete="on">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-with-icon-left">
+                                    <input class="with-border" name="name" type="text" id="name" placeholder="Your Name" required="required" />
+                                    <i class="icon-material-outline-account-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-with-icon-left">
+                                    <input class="with-border" name="email" type="email" id="email" placeholder="Email Address"  required="required" />
+                                    <i class="icon-material-outline-email"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-with-icon-left">
+                            <input class="with-border" name="subject" type="text" id="subject" placeholder="Subject" required="required" />
+                            <i class="icon-material-outline-assignment"></i>
+                        </div>
+
+                        <div>
+                            <textarea class="with-border" name="comments" cols="40" rows="5" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
+                        </div>
+
+                        <input type="submit" class="submit button margin-top-15" id="submit" value="Submit Message" />
+
+                    </form>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Container / End -->
+    <!-- Footer / End -->
+
+</div>
+
+

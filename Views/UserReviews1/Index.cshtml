@@ -1,0 +1,77 @@
+﻿@using System.Activities.Expressions
+@model IEnumerable<GAG_101.Models.UserReviews1>
+
+@{
+   
+}
+
+@if (User.IsInRole("Local BusinessUser"))
+
+{
+
+    
+
+}
+<div class="ReviewList">
+
+    @foreach (var item in Model)
+    {
+        <div class="Review">
+
+            <div class="reviewMetaData">
+                
+
+
+                <div>
+                    @Html.DisplayFor(modelItem => item.LocalBusinessUsers1.Business_Name)
+                </div>
+            </div>
+
+            <div class="reviewMetaData2">
+                <div>
+                    @Html.DisplayFor(modelItem => item.ReviewBody_Date)
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="ReviewContent">
+            <br/>
+            <div>
+                <div class="AverageRating" >Overall  <div class="star-rating" data-rating="@(item.AverageRating.ToString("0.##"))"></div></div>
+            <br/>
+                <div>Fair Pricing Score <div class="star-rating" data-rating="@(item.FairPrice_Rating.ToString("0.##"))"></div></div>
+                <div>Quality of Work Score <div class="star-rating" data-rating="@(item.Quality_Rating.ToString("0.##"))"></div></div>
+                <div>Timely Work Completion Score  <div class="star-rating" data-rating="@(item.CompletionTime_Rating.ToString("0.##"))"></div></div>
+            </div>
+           
+            <div class="ReviewBody">
+                <h4>What was your experience with this Expert?</h4> 
+
+                @Html.DisplayFor(modelItem => item.Review_Body)
+            <br/>
+                       <br/>
+        <br/>    
+            
+                @if (User.IsInRole("Local BusinessUser"))
+
+                {
+                    
+                    <div>
+                        <h2 class="btn-go ripple-effect" style="background-color: #e43c5f;">
+                            @Html.ActionLink("Leave A Review For This Expert!", "Create", "UserReviews1", new { id = ViewBag.expertID }, null)             
+                        </h2>
+                    </div>
+
+
+
+                }
+            
+                </div>
+        
+    </div>
+
+}
+    </div>

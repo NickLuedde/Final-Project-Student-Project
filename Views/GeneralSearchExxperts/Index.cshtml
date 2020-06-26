@@ -1,0 +1,162 @@
+﻿@model IEnumerable<GAG_101.Models.LocalExperts1>
+
+@{
+    ViewBag.Title = "General Search Experts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-12">
+		
+            @Html.Action("Search", "LocalExperts1")
+           
+            
+            
+            
+
+        </div>
+		<div class="col-xl-12">
+			<div class="companies-list">
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/company-logo-placeholder.png" alt=""></span>
+                        <a href="Details Put it Here" class="company">
+                            <div class="company-inner-alignment">
+                                <span class="company-logo"><img src="~/images/company-logo-placeholder.png" alt=""></span>
+                           
+                            }
+                                <div class="star-rating" data-rating="3.5"></div>
+                            </div>
+                        </a>
+						<div class="star-rating" data-rating="3.5"></div>
+					</div>
+				</a>
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/browse-companies-02.png" alt=""></span>
+						<h4>Acue</h4>
+						<div class="star-rating" data-rating="5.0"></div>
+					</div>
+				</a>
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/browse-companies-04.png" alt=""></span>
+                        }
+						<span class="company-not-rated">Minimum of 3 votes required</span>
+					</div>
+				</a>
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/company-logo-placeholder.png" alt=""></span>
+						
+						<span class="company-not-rated">Minimum of 3 votes required</span>
+					</div>
+				</a>
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/browse-companies-03.png" alt=""></span>
+						<h4>Acodia</h4>
+						<div class="star-rating" data-rating="4.9"></div>
+					</div>
+				</a>
+				<a href="single-company-profile.html" class="company">
+					<div class="company-inner-alignment">
+						<span class="company-logo"><img src="images/company-logo-placeholder.png" alt=""></span>
+						<h4>Acagic</h4>
+						<span class="company-not-rated">Minimum of 3 votes required</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Business_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_JobType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_Number)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Business_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_JobType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_Number)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LocalExpert_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LocalExpert_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LocalExpert_ID })
+        </td>
+    </tr>
+}
+
+</table>

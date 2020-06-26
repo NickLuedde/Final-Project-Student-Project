@@ -1,0 +1,136 @@
+﻿@using WebGrease
+@model IEnumerable<GAG_101.Models.LocalExperts1>
+
+@{
+
+}
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Mobile Navigation Button -->
+    <span class="mmenu-trigger">
+        <button class="hamburger hamburger--collapse" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </span>
+
+    <div class="clearfix"></div>
+
+    <!-- Spacer -->
+    <div class="margin-top-20"></div>
+    <!-- Spacer / End-->
+    <!-- Page Content
+    ================================================== -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="sidebar-container">
+
+                    <h2 style="text-align: center;">
+                        <span style="font-size: large">Let's Play</span>
+                        <br />Matchmaker
+                    </h2>
+
+                    @Html.Action("Search", "LocalExperts1")
+                </div>
+
+                <!-- Sidebar Container / End -->
+                <!-- Search Button -->
+                <!-- Search Button / End-->
+            </div>
+
+            <!-- Full Page Sidebar / End -->
+            <!-- Full Page Content -->
+            <div class="col-xl-9 col-lg-12 content-left-offset">
+
+                <h3 class="page-title">Search Results</h3>
+
+                <div class="notify-box margin-top-15">
+                    <div class="companies-list">
+                        @foreach (var item in Model)
+                        {
+                            <a href="@Url.Action("Details", "LocalExperts1", new {id=item.LocalExpert_ID})" class="company">
+                                <div class="company-inner-alignment">
+                                    <h4>@item.Business_Name</h4>
+                                    <h4>@item.Name_JobType</h4>
+                                    <h4>@item.Location_Zip</h4>
+                                    <div class="star-rating" data-rating="@(item.AverageRating?.ToString("0.##"))"></div>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="clearfix"></div>
+                <div class="pagination-container margin-top-20 margin-bottom-20">
+                </div>
+                <div class="clearfix"></div>
+                <!-- Pagination / End -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    
+        <div class="clearfix"></div>
+    </div>
+    <!-- Footer / End -->
+    <!-- Full Page Content / End -->
+</div>
+<!-- Wrapper / End -->
+<!-- Scripts
+================================================== -->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery-migrate-3.1.0.min.js"></script>
+<script src="~/Scripts/mmenu.min.js"></script>
+<script src="~/Scripts/tippy.all.min.js"></script>
+<script src="~/Scripts/simplebar.min.js"></script>
+<script src="~/Scripts/bootstrap-slider.min.js"></script>
+<script src="~/Scripts/bootstrap-select.min.js"></script>
+<script src="~/Scripts/snackbar.js"></script>
+<script src="~/Scripts/clipboard.min.js"></script>
+<script src="~/Scripts/counterup.min.js"></script>
+<script src="~/Scripts/magnific-popup.min.js"></script>
+<script src="~/Scripts/slick.min.js"></script>
+<script src="~/Scripts/custom.js"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+    // Snackbar for user status switcher
+    $('#snackbar-user-status label').click(function () {
+        Snackbar.show({
+            text: 'Your status has been changed!',
+            pos: 'bottom-center',
+            showAction: false,
+            actionText: "Dismiss",
+            duration: 3000,
+            textColor: '#fff',
+            backgroundColor: '#383838'
+        });
+    });
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+    var stl;
+
+    function initMap() {
+        stl = new google.maps.Map(document.getElementById("stl"), {
+            center: { lat: 38.5774973, lng: -90.4574379 },
+            zoom: 8
+
+        });
+    }
+</script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0IvuuXPJzbMQMFhF3Srks1aKNMcnD5ZA&callback=initMap"></script>
+<script src="~/Scripts/infobox.min.js"></script>
+<script src="~/Scripts/markerclusterer.js"></script>
+<script src="~/Scripts/maps.js"></script>
+
+<div class="col-xl-12">
+</div>

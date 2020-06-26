@@ -1,0 +1,88 @@
+﻿@model GAG_101.Models.UserReviews1
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>UserReviews1</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FairPrice_Rating)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FairPrice_Rating)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Quality_Rating)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Quality_Rating)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CompletionTime_Rating)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompletionTime_Rating)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Review_Body)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Review_Body)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReviewBody_Date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReviewBody_Date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LocalBusinessUsers1.LocalBusiness_UserID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LocalBusinessUsers1.LocalBusiness_UserID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LocalExperts1.LocalExpert_UserID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LocalExperts1.LocalExpert_UserID)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

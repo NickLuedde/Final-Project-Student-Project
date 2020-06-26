@@ -1,0 +1,238 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Basic Page Needs
+    Master Yellow:#ffffe7;
+    Master Blue: #b2d0e2
+    ================================================== -->
+    <title>GOTAGUY - YOUR B2B MATCHMAKER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link href="~/Content/blue.css" rel="stylesheet" />
+    <link href="~/Content/FOREST.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|AmericanTypewriter:300,300i,400,400i,600,600i,700,700i| " rel="stylesheet">
+
+    <title>@ViewBag.Title</title>
+
+
+</head>
+
+<body class="gray">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header Container
+    ================================================== -->
+        <header id="header-container" class="fullwidth dashboard-header">
+
+            <!-- Header -->
+            <div id="header">
+                <div class="container">
+
+                    <!-- Left Side Content -->
+                    <div class="left-side" >  
+
+                        <!-- Logo -->
+                        <h1 class="logo mr-auto" style="font-size:50px; font-weight: 800; padding-top:.75%">
+                            @Html.ActionLink("GOTAGUY", "Index", "Home")
+                        </h1>
+                        <
+                        <!-- Main Navigation -->
+                        <nav id="navigation">
+                            <ul id="responsive">
+
+                                <li style="font-size: 18PX;">
+                                    @Html.ActionLink("Home", "Index", "Home")
+                                </li>
+
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+
+                                <li>
+                                    <a href="#" style="font-size: 18PX;" >Contact</a>
+                                    <ul class="dropdown-nav">
+                                        <li>
+                                        </li>
+                                        <li> @Html.ActionLink("Contact", "Index", "Contact")</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    
+                        
+                    </div>
+                </div>
+           
+            <!-- Header / End -->
+        </header>
+        <div class="clearfix"></div>
+       
+        
+        @RenderBody()
+
+           
+
+
+        <!-- Spacer -->
+        <div class="margin-top-70"></div>
+        <!-- Spacer / End-->
+       
+        <!-- Footer
+    ================================================== -->
+
+        <div id="footer">
+            <!-- Footer Copyrights -->
+            <div class="footer-bottom-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            © 2020 <strong>GotAGuy</strong>. All Rights Reserved.
+                            <br/>
+                            Designed by Nick Luedde
+                            <br/>
+                            Phone: (773) 910.2282
+                            <br/>
+                            Email: lueddenicholas@gmail.com
+                            <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Copyrights / End -->
+        </div>
+        <!-- Footer / End -->
+    
+    <!-- Dashboard Container / End -->
+    <!-- Scripts
+    ================================================== -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.1.0.min.js"></script>
+    <script src="~/Scripts/mmenu.min.js"></script>
+    <script src="~/Scripts/tippy.all.min.js"></script>
+    <script src="~/Scripts/simplebar.min.js"></script>
+    <script src="~/Scripts/bootstrap-slider.min.js"></script>
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/snackbar.js"></script>
+    <script src="~/Scripts/clipboard.min.js"></script>
+    <script src="~/Scripts/counterup.min.js"></script>
+    <script src="~/Scripts/magnific-popup.min.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
+ 
+
+    <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+    <script>
+        // Snackbar for user status switcher
+        $('#snackbar-user-status label').click(function () {
+            Snackbar.show({
+                text: 'Your status has been changed!',
+                pos: 'bottom-center',
+                showAction: false,
+                actionText: "Dismiss",
+                duration: 3000,
+                textColor: '#fff',
+                backgroundColor: '#383838'
+            });
+        });
+    </script>
+
+    <!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
+    <script src="/Scripts/chart.min.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontFamily = "Poppins";
+        Chart.defaults.global.defaultFontColor = '#888';
+        Chart.defaults.global.defaultFontSize = '14';
+
+        var ctx = document.getElementById('chart').getContext('2d');
+
+        var chart = new Chart(ctx, {
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                // Information about the dataset
+                datasets: [{
+                    label: "Views",
+                    backgroundColor: 'rgba(42,65,232,0.08)',
+                    borderColor: '#2a41e8',
+                    borderWidth: "3",
+                    data: [196, 132, 215, 362, 210, 252],
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointHitRadius: 10,
+                    pointBackgroundColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointBorderWidth: "2"
+                }]
+            },
+
+            // Configuration options
+            options: {
+
+                layout: {
+                    padding: 10
+                },
+
+                legend: { display: false },
+                title: { display: false },
+
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: false
+                        },
+                        gridLines: {
+                            borderDash: [6, 10],
+                            color: "#d8d8d8",
+                            lineWidth: 1
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: { display: false },
+                        gridLines: { display: false }
+                    }]
+                },
+
+                tooltips: {
+                    backgroundColor: '#333',
+                    titleFontSize: 13,
+                    titleFontColor: '#fff',
+                    bodyFontColor: '#fff',
+                    bodyFontSize: 13,
+                    displayColors: false,
+                    xPadding: 10,
+                    yPadding: 10,
+                    intersect: false
+                }
+            }
+
+        });
+    </script>
+
+    </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("Scripts", false)
+</body>
+</html>

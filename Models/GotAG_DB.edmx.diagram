@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c3f2a7c265e94b4fbc404af93aeb4edd" Name="Diagram1">
+        <EntityTypeShape EntityType="GotAGuy_DB1Model.JobTypes1" Width="4.125" PointX="6.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GotAGuy_DB1Model.UserReviews1" Width="4" PointX="10" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GotAGuy_DB1Model.LocalBusinessUsers1" Width="4" PointX="0.75" PointY="6" />
+        <AssociationConnector Association="GotAGuy_DB1Model.FK__UserRevie__Local__2E1BDC42" />
+        <EntityTypeShape EntityType="GotAGuy_DB1Model.LocalExperts1" Width="1.5" PointX="11.375" PointY="5" />
+        <AssociationConnector Association="GotAGuy_DB1Model.FK__UserRevie__Local__2F10007B" />
+        <AssociationConnector Association="GotAGuy_DB1Model.LocalExpertJobTypes1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

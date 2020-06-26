@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GotAGuy_DB1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JobTypes1">
+          <Key>
+            <PropertyRef Name="JobType_ID" />
+          </Key>
+          <Property Name="JobType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_JobType" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="LocalBusinessUsers1">
+          <Key>
+            <PropertyRef Name="LocalBusiness_ID" />
+          </Key>
+          <Property Name="LocalBusiness_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalBusiness_UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Business_Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="BU_FEIN" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Location_Zip" Type="int" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="LocalExpertJobTypes1">
+          <Key>
+            <PropertyRef Name="LocalExpert_ID" />
+            <PropertyRef Name="JobType_ID" />
+          </Key>
+          <Property Name="LocalExpert_ID" Type="int" Nullable="false" />
+          <Property Name="JobType_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocalExperts1">
+          <Key>
+            <PropertyRef Name="LocalExpert_ID" />
+          </Key>
+          <Property Name="LocalExpert_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalExpert_UserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Business_Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name_JobType" Type="nvarchar" MaxLength="256" />
+          <Property Name="BU_FEIN" Type="nvarchar" MaxLength="256" />
+          <Property Name="Location_Zip" Type="int" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="UserReviews1">
+          <Key>
+            <PropertyRef Name="Review_ReferenceID" />
+          </Key>
+          <Property Name="Review_ReferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalBusiness_ID" Type="int" Nullable="false" />
+          <Property Name="LocalExpert_UserID" Type="int" Nullable="false" />
+          <Property Name="FairPrice_Rating" Type="int" Nullable="false" />
+          <Property Name="Quality_Rating" Type="int" Nullable="false" />
+          <Property Name="CompletionTime_Rating" Type="int" Nullable="false" />
+          <Property Name="Review_Body" Type="nvarchar(max)" />
+          <Property Name="ReviewBody_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__LocalExpe__JobTy__2B3F6F97">
+          <End Role="JobTypes1" Type="Self.JobTypes1" Multiplicity="1" />
+          <End Role="LocalExpertJobTypes1" Type="Self.LocalExpertJobTypes1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobTypes1">
+              <PropertyRef Name="JobType_ID" />
+            </Principal>
+            <Dependent Role="LocalExpertJobTypes1">
+              <PropertyRef Name="JobType_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocalExpe__Local__2A4B4B5E">
+          <End Role="LocalExperts1" Type="Self.LocalExperts1" Multiplicity="1" />
+          <End Role="LocalExpertJobTypes1" Type="Self.LocalExpertJobTypes1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocalExperts1">
+              <PropertyRef Name="LocalExpert_ID" />
+            </Principal>
+            <Dependent Role="LocalExpertJobTypes1">
+              <PropertyRef Name="LocalExpert_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRevie__Local__2E1BDC42">
+          <End Role="LocalBusinessUsers1" Type="Self.LocalBusinessUsers1" Multiplicity="1" />
+          <End Role="UserReviews1" Type="Self.UserReviews1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocalBusinessUsers1">
+              <PropertyRef Name="LocalBusiness_ID" />
+            </Principal>
+            <Dependent Role="UserReviews1">
+              <PropertyRef Name="LocalBusiness_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRevie__Local__2F10007B">
+          <End Role="LocalExperts1" Type="Self.LocalExperts1" Multiplicity="1" />
+          <End Role="UserReviews1" Type="Self.UserReviews1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocalExperts1">
+              <PropertyRef Name="LocalExpert_ID" />
+            </Principal>
+            <Dependent Role="UserReviews1">
+              <PropertyRef Name="LocalExpert_UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GotAGuy_DB1ModelStoreContainer">
+          <EntitySet Name="JobTypes1" EntityType="Self.JobTypes1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalBusinessUsers1" EntityType="Self.LocalBusinessUsers1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalExpertJobTypes1" EntityType="Self.LocalExpertJobTypes1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalExperts1" EntityType="Self.LocalExperts1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserReviews1" EntityType="Self.UserReviews1" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__LocalExpe__JobTy__2B3F6F97" Association="Self.FK__LocalExpe__JobTy__2B3F6F97">
+            <End Role="JobTypes1" EntitySet="JobTypes1" />
+            <End Role="LocalExpertJobTypes1" EntitySet="LocalExpertJobTypes1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocalExpe__Local__2A4B4B5E" Association="Self.FK__LocalExpe__Local__2A4B4B5E">
+            <End Role="LocalExperts1" EntitySet="LocalExperts1" />
+            <End Role="LocalExpertJobTypes1" EntitySet="LocalExpertJobTypes1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRevie__Local__2E1BDC42" Association="Self.FK__UserRevie__Local__2E1BDC42">
+            <End Role="LocalBusinessUsers1" EntitySet="LocalBusinessUsers1" />
+            <End Role="UserReviews1" EntitySet="UserReviews1" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRevie__Local__2F10007B" Association="Self.FK__UserRevie__Local__2F10007B">
+            <End Role="LocalExperts1" EntitySet="LocalExperts1" />
+            <End Role="UserReviews1" EntitySet="UserReviews1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GotAGuy_DB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="JobTypes1">
+          <Key>
+            <PropertyRef Name="JobType_ID" />
+          </Key>
+          <Property Name="JobType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_JobType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LocalExperts1" Relationship="GotAGuy_DB1Model.LocalExpertJobTypes1" FromRole="JobTypes1" ToRole="LocalExperts1" />
+        </EntityType>
+        <EntityType Name="UserReviews1">
+          <Key>
+            <PropertyRef Name="Review_ReferenceID" />
+          </Key>
+          <Property Name="Review_ReferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalBusiness_ID" Type="Int32" Nullable="false" />
+          <Property Name="LocalExpert_UserID" Type="Int32" Nullable="false" />
+          <Property Name="FairPrice_Rating" Type="Int32" Nullable="false" />
+          <Property Name="Quality_Rating" Type="Int32" Nullable="false" />
+          <Property Name="CompletionTime_Rating" Type="Int32" Nullable="false" />
+          <Property Name="Review_Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewBody_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LocalBusinessUsers1" Relationship="GotAGuy_DB1Model.FK__UserRevie__Local__2E1BDC42" FromRole="UserReviews1" ToRole="LocalBusinessUsers1" />
+          <NavigationProperty Name="LocalExperts1" Relationship="GotAGuy_DB1Model.FK__UserRevie__Local__2F10007B" FromRole="UserReviews1" ToRole="LocalExperts1" />
+        </EntityType>
+        <EntityContainer Name="GotAGuy_DB1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JobTypes1" EntityType="Self.JobTypes1" />
+          <EntitySet Name="UserReviews1" EntityType="Self.UserReviews1" />
+          <EntitySet Name="LocalBusinessUsers1" EntityType="GotAGuy_DB1Model.LocalBusinessUsers1" />
+          <AssociationSet Name="FK__UserRevie__Local__2E1BDC42" Association="GotAGuy_DB1Model.FK__UserRevie__Local__2E1BDC42">
+            <End Role="LocalBusinessUsers1" EntitySet="LocalBusinessUsers1" />
+            <End Role="UserReviews1" EntitySet="UserReviews1" />
+          </AssociationSet>
+          <EntitySet Name="LocalExperts1" EntityType="GotAGuy_DB1Model.LocalExperts1" />
+          <AssociationSet Name="FK__UserRevie__Local__2F10007B" Association="GotAGuy_DB1Model.FK__UserRevie__Local__2F10007B">
+            <End Role="LocalExperts1" EntitySet="LocalExperts1" />
+            <End Role="UserReviews1" EntitySet="UserReviews1" />
+          </AssociationSet>
+          <AssociationSet Name="LocalExpertJobTypes1" Association="GotAGuy_DB1Model.LocalExpertJobTypes1">
+            <End Role="JobTypes1" EntitySet="JobTypes1" />
+            <End Role="LocalExperts1" EntitySet="LocalExperts1" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="LocalBusinessUsers1">
+          <Key>
+            <PropertyRef Name="LocalBusiness_ID" />
+          </Key>
+          <Property Name="LocalBusiness_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalBusiness_UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Business_Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="BU_FEIN" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Location_Zip" Type="Int32" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserReviews1" Relationship="GotAGuy_DB1Model.FK__UserRevie__Local__2E1BDC42" FromRole="LocalBusinessUsers1" ToRole="UserReviews1" />
+        </EntityType>
+        <Association Name="FK__UserRevie__Local__2E1BDC42">
+          <End Type="GotAGuy_DB1Model.LocalBusinessUsers1" Role="LocalBusinessUsers1" Multiplicity="1" />
+          <End Type="GotAGuy_DB1Model.UserReviews1" Role="UserReviews1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocalBusinessUsers1">
+              <PropertyRef Name="LocalBusiness_ID" />
+            </Principal>
+            <Dependent Role="UserReviews1">
+              <PropertyRef Name="LocalBusiness_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LocalExperts1">
+          <Key>
+            <PropertyRef Name="LocalExpert_ID" />
+          </Key>
+          <Property Name="LocalExpert_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalExpert_UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Business_Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name_JobType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="BU_FEIN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Location_Zip" Type="Int32" />
+          <Property Name="Phone_Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserReviews1" Relationship="GotAGuy_DB1Model.FK__UserRevie__Local__2F10007B" FromRole="LocalExperts1" ToRole="UserReviews1" />
+          <NavigationProperty Name="JobTypes1" Relationship="GotAGuy_DB1Model.LocalExpertJobTypes1" FromRole="LocalExperts1" ToRole="JobTypes1" />
+        </EntityType>
+        <Association Name="FK__UserRevie__Local__2F10007B">
+          <End Type="GotAGuy_DB1Model.LocalExperts1" Role="LocalExperts1" Multiplicity="1" />
+          <End Type="GotAGuy_DB1Model.UserReviews1" Role="UserReviews1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocalExperts1">
+              <PropertyRef Name="LocalExpert_ID" />
+            </Principal>
+            <Dependent Role="UserReviews1">
+              <PropertyRef Name="LocalExpert_UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LocalExpertJobTypes1">
+          <End Type="GotAGuy_DB1Model.JobTypes1" Role="JobTypes1" Multiplicity="*" />
+          <End Type="GotAGuy_DB1Model.LocalExperts1" Role="LocalExperts1" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GotAGuy_DB1ModelStoreContainer" CdmEntityContainer="GotAGuy_DB1Entities">
+          <EntitySetMapping Name="JobTypes1">
+            <EntityTypeMapping TypeName="GotAGuy_DB1Model.JobTypes1">
+              <MappingFragment StoreEntitySet="JobTypes1">
+                <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+                <ScalarProperty Name="Name_JobType" ColumnName="Name_JobType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReviews1">
+            <EntityTypeMapping TypeName="GotAGuy_DB1Model.UserReviews1">
+              <MappingFragment StoreEntitySet="UserReviews1">
+                <ScalarProperty Name="Review_ReferenceID" ColumnName="Review_ReferenceID" />
+                <ScalarProperty Name="LocalBusiness_ID" ColumnName="LocalBusiness_ID" />
+                <ScalarProperty Name="LocalExpert_UserID" ColumnName="LocalExpert_UserID" />
+                <ScalarProperty Name="FairPrice_Rating" ColumnName="FairPrice_Rating" />
+                <ScalarProperty Name="Quality_Rating" ColumnName="Quality_Rating" />
+                <ScalarProperty Name="CompletionTime_Rating" ColumnName="CompletionTime_Rating" />
+                <ScalarProperty Name="Review_Body" ColumnName="Review_Body" />
+                <ScalarProperty Name="ReviewBody_Date" ColumnName="ReviewBody_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalBusinessUsers1">
+            <EntityTypeMapping TypeName="GotAGuy_DB1Model.LocalBusinessUsers1">
+              <MappingFragment StoreEntitySet="LocalBusinessUsers1">
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Location_Zip" ColumnName="Location_Zip" />
+                <ScalarProperty Name="BU_FEIN" ColumnName="BU_FEIN" />
+                <ScalarProperty Name="Business_Name" ColumnName="Business_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocalBusiness_UserID" ColumnName="LocalBusiness_UserID" />
+                <ScalarProperty Name="LocalBusiness_ID" ColumnName="LocalBusiness_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalExperts1">
+            <EntityTypeMapping TypeName="GotAGuy_DB1Model.LocalExperts1">
+              <MappingFragment StoreEntitySet="LocalExperts1">
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Location_Zip" ColumnName="Location_Zip" />
+                <ScalarProperty Name="BU_FEIN" ColumnName="BU_FEIN" />
+                <ScalarProperty Name="Name_JobType" ColumnName="Name_JobType" />
+                <ScalarProperty Name="Business_Name" ColumnName="Business_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocalExpert_UserID" ColumnName="LocalExpert_UserID" />
+                <ScalarProperty Name="LocalExpert_ID" ColumnName="LocalExpert_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LocalExpertJobTypes1" TypeName="GotAGuy_DB1Model.LocalExpertJobTypes1" StoreEntitySet="LocalExpertJobTypes1">
+            <EndProperty Name="LocalExperts1">
+              <ScalarProperty Name="LocalExpert_ID" ColumnName="LocalExpert_ID" />
+            </EndProperty>
+            <EndProperty Name="JobTypes1">
+              <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

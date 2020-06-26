@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section id="hero">
+    <div class="hero-container">
+
+        <h1 style="color:  #ffffe7 ">GOTAGUY</h1>
+        <h2> Your Local Business to Business Matchmaker</h2>
+        <h2 class="btn-get-started">
+            @Html.ActionLink("Join Us", "Register", "Account")
+        </h2>
+    </div>
+</section>
+

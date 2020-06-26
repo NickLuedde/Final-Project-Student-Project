@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GotAGuy_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="JobTypes">
+    <Key>
+      <PropertyRef Name="JobType_ID" />
+    </Key>
+    <Property Name="JobType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_JobType" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GotAGuy_DB.dbo.LocalBusinessUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LocalBusinessUsers">
+    <Key>
+      <PropertyRef Name="LocalBusiness_UserID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Business_Name" />
+      <PropertyRef Name="BU_FEIN" />
+      <PropertyRef Name="Location_Zip" />
+      <PropertyRef Name="Phone_Number" />
+    </Key>
+    <Property Name="LocalBusiness_UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Business_Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="BU_FEIN" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Location_Zip" Type="int" Nullable="false" />
+    <Property Name="Phone_Number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocalExpertJobTypes">
+    <Key>
+      <PropertyRef Name="LocalExpert_UserID" />
+      <PropertyRef Name="JobType_ID" />
+    </Key>
+    <Property Name="LocalExpert_UserID" Type="int" Nullable="false" />
+    <Property Name="JobType_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocalExperts">
+    <Key>
+      <PropertyRef Name="LocalExpert_ID" />
+    </Key>
+    <Property Name="LocalExpert_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalExpert_UserID" Type="nvarchar" MaxLength="256" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Business_Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Name_JobType" Type="nvarchar" MaxLength="256" />
+    <Property Name="BU_FEIN" Type="nvarchar" MaxLength="256" />
+    <Property Name="Location_Zip" Type="int" />
+    <Property Name="Phone_Number" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserReviews">
+    <Key>
+      <PropertyRef Name="Review_ReferenceID" />
+    </Key>
+    <Property Name="Review_ReferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalBusiness_UserID" Type="int" Nullable="false" />
+    <Property Name="LocalExpert_UserID" Type="int" Nullable="false" />
+    <Property Name="FairPrice_Rating" Type="int" Nullable="false" />
+    <Property Name="Quality_Rating" Type="int" Nullable="false" />
+    <Property Name="CompletionTime_Rating" Type="int" Nullable="false" />
+    <Property Name="Review_Body" Type="nvarchar(max)" />
+    <Property Name="ReviewBody_Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="GotAGuy_DBModelStoreContainer">
+    <EntitySet Name="JobTypes" EntityType="Self.JobTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocalExpertJobTypes" EntityType="Self.LocalExpertJobTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocalExperts" EntityType="Self.LocalExperts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserReviews" EntityType="Self.UserReviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocalBusinessUsers" EntityType="Self.LocalBusinessUsers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LocalBusinessUsers].[LocalBusiness_UserID] AS [LocalBusiness_UserID], 
+    [LocalBusinessUsers].[Name] AS [Name], 
+    [LocalBusinessUsers].[Email] AS [Email], 
+    [LocalBusinessUsers].[Business_Name] AS [Business_Name], 
+    [LocalBusinessUsers].[BU_FEIN] AS [BU_FEIN], 
+    [LocalBusinessUsers].[Location_Zip] AS [Location_Zip], 
+    [LocalBusinessUsers].[Phone_Number] AS [Phone_Number]
+    FROM [dbo].[LocalBusinessUsers] AS [LocalBusinessUsers]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

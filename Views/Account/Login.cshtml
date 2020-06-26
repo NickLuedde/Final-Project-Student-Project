@@ -1,0 +1,54 @@
+﻿@using GAG_101.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section id="hero">
+    <div class="hero-container">
+    <!-- Welcome -->
+    <div class="welcome-text">
+    <h1 style="font-size: 40px;">Welcome Back!</h1>
+
+    <br/>
+    <br/>
+    <br />
+    <br />
+                        
+
+                @using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                {
+
+                    @Html.AntiForgeryToken();
+
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                    
+    <div class="form" style="color: #ffffe7; text-align:justify;  width: 117%;">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+                    <br/>
+                    <div class="form" style="color: #ffffe7; text-align:justify;  width: 117%;">
+                        @Html.LabelFor(m => m.Password, new {@class = "col-md-2 control-label"})
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <!-- Button -->
+                    <input class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" value="Log In"><i class="icon-material-outline-arrow-right-alt"></i>
+                    <br/>
+
+                }
+    </div>
+
+    </div>
+
+</section>

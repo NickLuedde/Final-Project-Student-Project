@@ -1,0 +1,39 @@
+﻿@model GAG_101.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<section id="hero">
+    <div class="hero-container">
+        <!-- Welcome -->
+        <div class="welcome-text">
+            <h1 style="font-size: 40px;">Let's Join GotAGuy!</h1>
+
+            <br/>
+            <br/>
+            <br />
+           
+                <div>
+                    <h2 class="btn-get-started ripple-effect" style="font-size: large;">
+                        @Html.ActionLink("I'm A Local Business Owner", "RegisterBusinessUser", "Account")
+                    </h2> 
+                    </div>
+                <br/>
+                <br/>
+                
+            <div>
+                <h2 class="btn-get-started ripple-effect"style="font-size: large;">
+                    @Html.ActionLink("I'm A Local Expert", "RegisterExpert", "Account")
+                </h2> 
+            </div>
+            </div>
+
+        </div>
+
+    </section>
+
+       
+
+
+
